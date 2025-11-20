@@ -10,10 +10,10 @@ import java.util.List;
 
 @Builder
 public record OrderDtoRes(Long id,
-                          User client,
-                          Restaurant restaurant,
-                          List<OrderItem> items,
+                           UserDtoRes client,
+                          RestaurantDtoRes restaurant,
+                          List<OrderItemDtoRes> items,
                           OrderStatus status,
-                          User driver,
+                          UserDtoRes driver,
                           String deliveryAddress) {
 }

@@ -28,18 +28,18 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderDtoRes createOrder(OrderDtoReq dto) {
 
-        User client = userService.findById(dto.getClientId());
-        Restaurant restaurant = restaurantService.findById(dto.getRestaurantId());
+        User client = userService.findById(dto.clientId());
+        Restaurant restaurant = restaurantService.findById(dto.restaurantId());
 
         Order order = OrderMapper.toEntity(dto);
         order.setClient(client);
         order.setRestaurant(restaurant);
         order.setStatus(OrderStatus.PENDING);
 
-        List<OrderItem> items = dto.getItems().stream()
+        List<OrderItem> items = dto.items().stream()
                 .map(req -> {
                     OrderItem item = OrderItemMapper.toEntity(req);
-                    MenuItem menuItem = menuItemRepository.findById(req.getMenuItemId())
+                    MenuItem menuItem = menuItemRepository.findById(req.menuItemId())
                             .orElseThrow(() -> new RuntimeException("Plato no encontrado"));
                     item.setItem(menuItem);
                     item.setOrder(order);

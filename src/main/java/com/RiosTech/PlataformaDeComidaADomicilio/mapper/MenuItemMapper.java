@@ -21,9 +21,9 @@ public class MenuItemMapper {
         if (request == null) return null;
 
         return MenuItem.builder()
-                .name(request.getName())
-                .price(request.getPrice())
-                .description(request.getDescription())
+                .name(request.name())
+                .price(request.price())
+                .description(request.description())
                 .build();
     }
 }

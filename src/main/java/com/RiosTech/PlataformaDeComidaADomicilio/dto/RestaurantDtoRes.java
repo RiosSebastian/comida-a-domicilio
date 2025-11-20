@@ -7,5 +7,5 @@ import lombok.Builder;
 public record RestaurantDtoRes(Long id,
                                String name,
                                String address,
-                                User owner) {
+                               UserDtoRes owner) {
 }

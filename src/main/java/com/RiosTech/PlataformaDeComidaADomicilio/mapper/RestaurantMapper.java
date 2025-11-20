@@ -22,8 +22,8 @@ public class RestaurantMapper {
 
         // OJO: owner debe setearse desde el service
         return Restaurant.builder()
-                .name(request.getName())
-                .address(request.getAddress())
+                .name(request.name())
+                .address(request.address())
                 .build();
     }
 }

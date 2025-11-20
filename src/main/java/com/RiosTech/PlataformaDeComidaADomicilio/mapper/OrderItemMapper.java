@@ -20,7 +20,7 @@ public class OrderItemMapper {
         if (request == null) return null;
 
         return OrderItem.builder()
-                .quantity(request.getQuantity())
+                .quantity(request.quantity())
                 .build();
     }
 }

@@ -22,7 +22,7 @@ public class MenuItemServiceImpl implements MenuItemService {
 
     @Override
     public MenuItemDtoRes create(MenuItemDtoReq dto) {
-        Restaurant restaurant = restaurantService.findById(dto.getRestaurantId());
+        Restaurant restaurant = restaurantService.findById(dto.restaurantId());
 
         MenuItem item = MenuItemMapper.toEntity(dto);
         item.setRestaurant(restaurant);

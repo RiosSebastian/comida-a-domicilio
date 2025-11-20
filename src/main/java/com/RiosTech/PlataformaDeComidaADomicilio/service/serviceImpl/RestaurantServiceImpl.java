@@ -20,7 +20,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public RestaurantDtoRes create(RestaurantDtoReq dto) {
-        User owner = userService.findById(dto.getOwnerId());
+        User owner = userService.findById(dto.ownerId());
 
         Restaurant restaurant = RestaurantMapper.toEntity(dto);
         restaurant.setOwner(owner);

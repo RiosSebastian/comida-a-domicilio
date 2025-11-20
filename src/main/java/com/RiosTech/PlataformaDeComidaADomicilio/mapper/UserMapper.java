@@ -21,10 +21,10 @@ public class UserMapper {
         if (request == null) return null;
 
         return User.builder()
-                .username(request.getUsername())
-                .password(request.getPassword())
-                .email(request.getEmail())
-                .role(request.getRole())
+                .username(request.username())
+                .password(request.password())
+                .email(request.email())
+                .role(request.role())
                 .build();
     }
 }

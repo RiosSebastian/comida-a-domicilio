@@ -30,7 +30,7 @@ public class OrderMapper {
         if (request == null) return null;
 
         return Order.builder()
-                .deliveryAddress(request.getDeliveryAddress())
+                .deliveryAddress(request.deliveryAddress())
                 .build();
     }
 }
