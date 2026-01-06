@@ -1,5 +1,7 @@
 package com.RiosTech.PlataformaDeComidaADomicilio.controller;
 
+import com.RiosTech.PlataformaDeComidaADomicilio.dto.AuthResponse;
+import com.RiosTech.PlataformaDeComidaADomicilio.dto.LoginRequest;
 import com.RiosTech.PlataformaDeComidaADomicilio.security.JwtService;
 import com.RiosTech.PlataformaDeComidaADomicilio.security.UserDetailsServiceImpl;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +30,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(
-            @RequestBody AuthRequest request
+            @RequestBody LoginRequest request
     ) {
         try {
             authenticationManager.authenticate(
@@ -43,7 +45,7 @@ public class AuthController {
 
             String token = jwtService.generateToken(userDetails.getUsername());
 
-            return ResponseEntity.ok(new AuthResponse(token));
+            return ResponseEntity.ok(new AuthResponse(token, null));
 
         } catch (AuthenticationException e) {
             return ResponseEntity.status(401).build();

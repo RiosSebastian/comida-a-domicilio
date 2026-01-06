@@ -8,15 +8,18 @@ import com.RiosTech.PlataformaDeComidaADomicilio.mapper.RestaurantMapper;
 import com.RiosTech.PlataformaDeComidaADomicilio.repository.RestaurantRepository;
 import com.RiosTech.PlataformaDeComidaADomicilio.service.RestaurantService;
 import com.RiosTech.PlataformaDeComidaADomicilio.service.UserService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class RestaurantServiceImpl implements RestaurantService {
 
     private final RestaurantRepository restaurantRepository;
     private final UserService userService;
+
+    public RestaurantServiceImpl(RestaurantRepository restaurantRepository, UserService userService) {
+        this.restaurantRepository = restaurantRepository;
+        this.userService = userService;
+    }
 
     @Override
     public RestaurantDtoRes create(RestaurantDtoReq dto) {

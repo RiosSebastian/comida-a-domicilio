@@ -11,19 +11,24 @@ import com.RiosTech.PlataformaDeComidaADomicilio.service.OrderService;
 import com.RiosTech.PlataformaDeComidaADomicilio.service.RestaurantService;
 import com.RiosTech.PlataformaDeComidaADomicilio.service.UserService;
 import com.RiosTech.PlataformaDeComidaADomicilio.util.OrderStatus;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final UserService userService;
     private final RestaurantService restaurantService;
     private final MenuItemRepository menuItemRepository;
+
+    public OrderServiceImpl(OrderRepository orderRepository, UserService userService, RestaurantService restaurantService, MenuItemRepository menuItemRepository) {
+        this.orderRepository = orderRepository;
+        this.userService = userService;
+        this.restaurantService = restaurantService;
+        this.menuItemRepository = menuItemRepository;
+    }
 
     @Override
     public OrderDtoRes createOrder(OrderDtoReq dto) {

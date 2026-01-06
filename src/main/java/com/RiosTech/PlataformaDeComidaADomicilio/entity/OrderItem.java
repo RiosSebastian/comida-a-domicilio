@@ -7,10 +7,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

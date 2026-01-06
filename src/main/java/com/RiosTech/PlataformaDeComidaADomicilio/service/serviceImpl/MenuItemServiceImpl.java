@@ -8,17 +8,20 @@ import com.RiosTech.PlataformaDeComidaADomicilio.mapper.MenuItemMapper;
 import com.RiosTech.PlataformaDeComidaADomicilio.repository.MenuItemRepository;
 import com.RiosTech.PlataformaDeComidaADomicilio.service.MenuItemService;
 import com.RiosTech.PlataformaDeComidaADomicilio.service.RestaurantService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class MenuItemServiceImpl implements MenuItemService {
 
     private final MenuItemRepository menuItemRepository;
     private final RestaurantService restaurantService;
+
+    public MenuItemServiceImpl(MenuItemRepository menuItemRepository, RestaurantService restaurantService) {
+        this.menuItemRepository = menuItemRepository;
+        this.restaurantService = restaurantService;
+    }
 
     @Override
     public MenuItemDtoRes create(MenuItemDtoReq dto) {
